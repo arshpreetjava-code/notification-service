@@ -40,7 +40,7 @@ jobs:
         run: |
           echo "${{ secrets.EC2_SSH_KEY }}" > notification_key.pem
           chmod 600 notification_key.pem
-          ssh -o StrictHostKeyChecking=no -i notification_key.pem ${{ secrets.EC2_HOSTNAME }}@${{ secrets.EC2_PUBLIC_IP }} << 'EOF'
+          ssh -o StrictHostKeyChecking=no -i notification_key.pem ubuntu@ec2-13-201-45-249.ap-south-1.compute.amazonaws.com << 'EOF'
             sudo docker pull userbeta/notification-service:1.0.0
             sudo docker stop notification-service || true
             sudo docker rm notification-service || true
