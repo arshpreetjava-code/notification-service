@@ -46,7 +46,7 @@ jobs:
             sudo docker rm notification-service || true
             sudo docker run -d \
               --name notification-service \
-              -p 8080:8080 \
+              -p 8085:8080 \
               -e BOOTSTRAP_SERVER=${{ secrets.BOOTSTRAP_SERVER }} \
               -e GROUP_ID=${{ secrets.GROUP_ID }} \
               userbeta/notification-service:1.0.0
